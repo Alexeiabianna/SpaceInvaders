@@ -65,8 +65,8 @@ public class Game {
         }
 
         // Adiciona pinguim
-        activeChars.add(new Pinguim(100, 270));
-        activeChars.add(new Pinguim(10,300));
+        activeChars.add(new EnemyA(100, 270));
+        activeChars.add(new EnemyA(10,300));
 
         for(Character c:activeChars){
             c.start();

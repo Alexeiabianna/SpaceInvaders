@@ -1,15 +1,15 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class Pinguim extends BasicElement {
+public class EnemyA extends BasicElement {
     private Image image;
 
-    public Pinguim(int px,int py){
+    public EnemyA(int px,int py){
         super(px,py);
         try{
             // Carrega a imagem ajustando a altura para 40 pixels
             // mantendo a proporção em ambas dimensões
-            image =  new Image( "pinguim.png",0,40,true,true );
+            image =  new Image( "enemy01.png",0,60,true,true );
         }catch(Exception e){
             System.out.println(e.getMessage());
             System.exit(1);
@@ -38,7 +38,7 @@ public class Pinguim extends BasicElement {
                 setSpeed(Params.getInstance().nextInt(5)+5);
                 // Se ainda não chegou perto do chão, desce
                 /*if (getY() < 450){ */
-                    setPosY(getY()+25);
+                setPosY(getY()+25);
                 //}
             }
         }
@@ -50,7 +50,7 @@ public class Pinguim extends BasicElement {
 
     @Override
     public void testaColisao(Character outro){
-        if (outro instanceof Pinguim){
+        if (outro instanceof EnemyA){
             return;
         }else{
             super.testaColisao(outro);

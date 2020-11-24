@@ -34,7 +34,7 @@ public class Ball extends BasicElement{
     }
 
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#FFFF00")); 
-        graphicsContext.fillOval(getX(), getY(), 25, 32);
+        graphicsContext.setFill(Paint.valueOf("#F55F00")); 
+        graphicsContext.fillOval(getX(), getY(), 32, 32);
     }
 }
