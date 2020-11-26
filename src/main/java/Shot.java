@@ -6,14 +6,18 @@ import javafx.scene.paint.Paint;
  * @author Bernardo Copstein and Rafael Copstein
  */
 public class Shot extends BasicElement{
-    public Shot(int px,int py){
+
+    private int dirShot;
+
+    public Shot(int px,int py, int dirShot){
         super(px,py);
+        this.dirShot = dirShot;
     }
 
     @Override
     public void start(){
-        setDirV(-1);
-        setSpeed(3);
+        setDirV(dirShot);
+        setSpeed(5);
     }
 
     @Override
@@ -51,7 +55,7 @@ public class Shot extends BasicElement{
     }
 
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#00FF00"));
-        graphicsContext.fillOval(getX(), getY(), 8, 16);
+        graphicsContext.setFill(Paint.valueOf("#FF09FF"));
+        graphicsContext.fillRect(getX(), getY(), 8, 16);
     }
 }

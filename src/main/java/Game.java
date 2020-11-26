@@ -31,8 +31,8 @@ public class Game {
         return pontos;
     }
 
-    public void incPontos(){
-        pontos++;
+    public void incPontos(int pontos){
+        this.pontos+=pontos;
     }
 
     public static Game getInstance(){
@@ -40,6 +40,10 @@ public class Game {
             game = new Game();
         }
         return(game);
+    }
+
+    public Canhao getCanhao(){
+        return canhao;
     }
 
     public void addChar(Character c){
@@ -56,17 +60,17 @@ public class Game {
         activeChars = new LinkedList<>();
 
         // Adiciona o canhao
-        canhao = new Canhao(400,550);
+        canhao = new Canhao(400,700);
         activeChars.add(canhao);
 
         // Adiciona bolas
-        for(int i=0; i<5; i++){
-            activeChars.add(new Ball(100+(i*60),60+i*40));
-        }
+        /* for(int i=0; i<5; i++){
+            activeChars.add(new EnemySimple(100+(i*60), 60+i*40));
+        } */
 
         // Adiciona pinguim
-        activeChars.add(new EnemyA(100, 270));
-        activeChars.add(new EnemyA(10,300));
+        activeChars.add(new EnemyShooter(100, 270));
+        activeChars.add(new EnemyArmored(10,300));
 
         for(Character c:activeChars){
             c.start();

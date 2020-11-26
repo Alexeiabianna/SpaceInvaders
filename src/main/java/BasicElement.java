@@ -6,13 +6,15 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public abstract class BasicElement implements Character{
     int direction_horizontal = 0, direction_vertical = 0;
-    int lminV = 0, lmaxV = Params.WINDOW_HEIGHT;
-    int lminH = 0, lmaxH = Params.WINDOW_WIDTH;
-    int largura = 32, altura = 32;
+    int lminV = 0, lmaxV = Params.WINDOW_HEIGHT-200;
+    int lminH = 0, lmaxH = Params.WINDOW_WIDTH-200;
+    int largura = 50, altura = 50;
     boolean colidiu = false;
     boolean active = true;
     int posX, posY;
     int speed = 2;
+
+    private int ptsVida = 1;
 
     public BasicElement(int startX,int startY){
         posX = startX;
@@ -57,7 +59,9 @@ public abstract class BasicElement implements Character{
 
         // Verifica colisão
         if (p1x < op2x && p2x > op1x && p1y < op2y && p2y > op1y){
-            colidiu = true;
+            setPtsVida(ptsVida - 1);
+            if(ptsVida <= 0)
+                colidiu = true; //mata o cara 
         }
     }
 
@@ -87,6 +91,14 @@ public abstract class BasicElement implements Character{
 
     public int getSpeed(){
         return(speed);
+    }
+
+    public int getPtsVida(){
+        return ptsVida;
+    }
+
+    public void setPtsVida(int ptsVida){
+        this.ptsVida=ptsVida;
     }
 
     public void setPosX(int p){
